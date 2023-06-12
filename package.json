@@ -8,13 +8,13 @@
     "@babel/core": "7.13.16",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.0.2",
-    "@types/k6": "~0.41.0",
+    "@types/k6": "~0.44.2",
     "rollup-plugin-copy": "^3.4.0",
     "typescript": "4.2.4",
     "vite": "^4.3.8"
   },
   "scripts": {
     "build": "vite build",
-    "test:demo": "npm run build && k6 run dist/tests/demo.cjs -a localhost:6566"
+    "test:demo": "npm run build && k6 run dist/tests/reqres.cjs -a localhost:6566"
   }
 }
