@@ -7,7 +7,4 @@
 
 ## Tests
 
-
-To run in a container, run `docker run --rm -i grafana/k6 run - dist/tests/demo.js`
-
-- Demo: `yarn test:demo`
+- Run demo test: `yarn test:demo`
