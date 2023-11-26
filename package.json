@@ -4,17 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
-  "devDependencies": {
-    "@babel/core": "7.13.16",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "@types/k6": "~0.44.2",
-    "rollup-plugin-copy": "^3.4.0",
-    "typescript": "4.2.4",
-    "vite": "^4.3.8"
-  },
   "scripts": {
     "build": "vite build",
-    "test:demo": "npm run build && k6 run dist/tests/reqres.cjs -a localhost:6566"
+    "test:demo": "yarn build && k6 run dist/tests/reqres.cjs -a localhost:6566",
+    "test:demo-stages": "yarn build && k6 run dist/tests/reqres-stages.cjs -a localhost:6566",
+    "test-with-monitoring:demo": "yarn build && docker run --platform linux/amd64 -it -p 5665:5665 -v $(pwd)/dist/:/src ghcr.io/grafana/xk6-dashboard:0.6.1 run --out 'dashboard=period=2s' /src/tests/reqres.cjs",
+    "test-with-monitoring:demo-stages": "yarn build && docker run --platform linux/amd64 -it -p 5665:5665 -v $(pwd)/dist/:/src ghcr.io/grafana/xk6-dashboard:0.6.1 run --out 'dashboard=period=2s' /src/tests/reqres-stages.cjs"
+  },
+  "devDependencies": {
+    "@babel/core": "7.23.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/k6": "~0.47.3",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "5.3.2",
+    "vite": "^5.0.0"
   }
 }
