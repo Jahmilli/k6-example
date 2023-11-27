@@ -11,9 +11,9 @@ const data = new SharedArray("users", function () {
 
 export const options: Options = {
   stages: [
-    // Ramp up to 15 users over 30 seconds
+    // Ramp up to 12 users over 30 seconds
     { duration: "1m", target: 12 },
-    // Ramp up to 25 users over the next minute
+    // Maintain steady state of 12 users over the next two minutes
     { duration: "2m", target: 12 },
     // Ramp down to 0 users over the next 30 seconds
     { duration: "30s", target: 0 },
